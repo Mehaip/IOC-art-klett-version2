@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnfw0dvehw5k0"]
+
+[ext_resource type="Script" path="res://scripts/planet.gd" id="1_planet"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_planet"]
+radius = 50.0
+
+[node name="Planet" type="Node2D"]
+script = ExtResource("1_planet")
+
+[node name="PlanetSprite" type="Sprite2D" parent="."]
+
+[node name="StatusIndicator" type="Node2D" parent="."]
+position = Vector2(50, -50)
+
+[node name="Background" type="ColorRect" parent="StatusIndicator"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 0.7)
+
+[node name="StatusLabel" type="Label" parent="StatusIndicator"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 24
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = -60.0
+offset_top = 45.0
+offset_right = 60.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 16
+text = "Planet"
+horizontal_alignment = 1
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_planet")
+
+[node name="PromptLabel" type="Label" parent="."]
+visible = false
+offset_left = -50.0
+offset_top = -70.0
+offset_right = 50.0
+offset_bottom = -50.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Press E"
+horizontal_alignment = 1

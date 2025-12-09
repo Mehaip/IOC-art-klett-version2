@@ -1,0 +1,28 @@
+Planets game for 4th grade using school book material that can be played on tablets.
+
+The game opens up with a simple menu, with a title "Art klett - Planete" with a background in the universe (starts)
+ and a button for start.
+
+ When the player presses start, we are presented with a top-down perspective, similar to Undertale
+ We can controll our character which is a cartoon astronaut. He is in the universe and is talking around
+ with arrow keys (for laptop) or moving buttons for tablet.
+ He is surrounded by our planets. Each planet has near it an X or an OKAY symbol.
+ X is colored RED and means the planet is not unlocked.
+ OKAY symbol is colored RED and means the planet is unlocked.
+
+ If our astronaut goes to a planet and presses on it, he is put into a 5 questions quiz in ROMANIAN
+ with 4 possible answers about that planet. Once he gets 5 out of 5 questions correctly,
+ the astronaut is put into a "dodge-the-meteorite" game. This game is a reward for answering the questions
+ basically there is a timer that starts from 0, and it counts in second how much time the astronaut
+ lasts until he is hit by a metheorite, as time passes more and more metheorites appear. There is
+ also a highscore on the screen with the biggest score attained.
+
+ Once our astronaut is hit by a metheorite (eventually he will lose due to the game becoming too hard)
+ Our locked planet should become unlocked and have the GREEN OKAY symbol.
+
+ Besides the existing planets, i want you to create 2 more fictional planets.
+ One planet is called "HAI SA INVATAM" and has a smiley face on it. This planet contains the pictures from
+ the directory pics/. The player can choose if he can exit the planet, or go to the next/previous picture.
+
+ The second planet is called "NOTITE". It just opens up a menu similar to notepad and our player can take 
+ notes which are saved when the player chooses to open up the "NOTITE" planet once again.

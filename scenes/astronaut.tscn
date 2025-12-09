@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://7iyb53wxofj5"]
+
+[ext_resource type="Script" path="res://scripts/astronaut.gd" id="1_astronaut"]
+[ext_resource type="Texture2D" uid="uid://bqnrvdoiwu3dw" path="res://assets/astronaut.png" id="2_astronaut_sprite"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_astronaut"]
+radius = 30.0
+
+[node name="Astronaut" type="CharacterBody2D"]
+script = ExtResource("1_astronaut")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_astronaut_sprite")
+scale = Vector2(0.15, 0.15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_astronaut")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_astronaut")

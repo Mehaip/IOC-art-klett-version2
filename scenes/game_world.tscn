@@ -1,0 +1,231 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmx3ujuv1yj8f"]
+
+[ext_resource type="Script" path="res://scripts/game_world.gd" id="1_world"]
+[ext_resource type="PackedScene" uid="uid://7iyb53wxofj5" path="res://scenes/astronaut.tscn" id="2_astro"]
+[ext_resource type="PackedScene" uid="uid://dnfw0dvehw5k0" path="res://scenes/planet.tscn" id="3_planet"]
+
+[node name="GameWorld" type="Node2D"]
+script = ExtResource("1_world")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.05, 0.02, 0.15, 1)
+
+[node name="Stars" type="Node2D" parent="Background"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+zoom = Vector2(1, 1)
+
+[node name="Astronaut" parent="." instance=ExtResource("2_astro")]
+position = Vector2(640, 360)
+
+[node name="Planets" type="Node2D" parent="."]
+
+[node name="Mercury" parent="Planets" instance=ExtResource("3_planet")]
+position = Vector2(400, 200)
+planet_name = "Mercury"
+planet_color = Color(0.6, 0.6, 0.6, 1)
+
+[node name="Venus" parent="Planets" instance=ExtResource("3_planet")]
+position = Vector2(700, 150)
+planet_name = "Venus"
+planet_color = Color(0.9, 0.7, 0.4, 1)
+
+[node name="Earth" parent="Planets" instance=ExtResource("3_planet")]
+position = Vector2(900, 250)
+planet_name = "Earth"
+planet_color = Color(0.2, 0.4, 0.8, 1)
+
+[node name="Mars" parent="Planets" instance=ExtResource("3_planet")]
+position = Vector2(300, 400)
+planet_name = "Mars"
+planet_color = Color(0.8, 0.3, 0.2, 1)
+
+[node name="Jupiter" parent="Planets" instance=ExtResource("3_planet")]
+position = Vector2(600, 500)
+planet_name = "Jupiter"
+planet_color = Color(0.8, 0.6, 0.4, 1)
+planet_scale = 2.0
+
+[node name="Saturn" parent="Planets" instance=ExtResource("3_planet")]
+position = Vector2(950, 500)
+planet_name = "Saturn"
+planet_color = Color(0.9, 0.8, 0.6, 1)
+planet_scale = 1.8
+
+[node name="Uranus" parent="Planets" instance=ExtResource("3_planet")]
+position = Vector2(200, 600)
+planet_name = "Uranus"
+planet_color = Color(0.4, 0.7, 0.8, 1)
+planet_scale = 1.3
+
+[node name="Neptune" parent="Planets" instance=ExtResource("3_planet")]
+position = Vector2(1100, 300)
+planet_name = "Neptune"
+planet_color = Color(0.2, 0.3, 0.9, 1)
+planet_scale = 1.3
+
+[node name="HAI_SA_INVATAM" parent="Planets" instance=ExtResource("3_planet")]
+position = Vector2(1000, 600)
+planet_name = "HAI_SA_INVATAM"
+planet_color = Color(1, 0.9, 0.3, 1)
+planet_scale = 1.2
+
+[node name="NOTITE" parent="Planets" instance=ExtResource("3_planet")]
+position = Vector2(400, 600)
+planet_name = "NOTITE"
+planet_color = Color(0.7, 0.5, 0.9, 1)
+planet_scale = 1.0
+
+[node name="MobileControls" type="CanvasLayer" parent="."]
+
+[node name="ControlContainer" type="Control" parent="MobileControls"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LeftButton" type="TouchScreenButton" parent="MobileControls/ControlContainer"]
+position = Vector2(50, 570)
+scale = Vector2(2, 2)
+action = "ui_left"
+
+[node name="Icon" type="ColorRect" parent="MobileControls/ControlContainer/LeftButton"]
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(1, 1, 1, 0.3)
+
+[node name="Arrow" type="Label" parent="MobileControls/ControlContainer/LeftButton/Icon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "←"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightButton" type="TouchScreenButton" parent="MobileControls/ControlContainer"]
+position = Vector2(250, 570)
+scale = Vector2(2, 2)
+action = "ui_right"
+
+[node name="Icon" type="ColorRect" parent="MobileControls/ControlContainer/RightButton"]
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(1, 1, 1, 0.3)
+
+[node name="Arrow" type="Label" parent="MobileControls/ControlContainer/RightButton/Icon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "→"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpButton" type="TouchScreenButton" parent="MobileControls/ControlContainer"]
+position = Vector2(150, 470)
+scale = Vector2(2, 2)
+action = "ui_up"
+
+[node name="Icon" type="ColorRect" parent="MobileControls/ControlContainer/UpButton"]
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(1, 1, 1, 0.3)
+
+[node name="Arrow" type="Label" parent="MobileControls/ControlContainer/UpButton/Icon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "↑"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DownButton" type="TouchScreenButton" parent="MobileControls/ControlContainer"]
+position = Vector2(150, 570)
+scale = Vector2(2, 2)
+action = "ui_down"
+
+[node name="Icon" type="ColorRect" parent="MobileControls/ControlContainer/DownButton"]
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(1, 1, 1, 0.3)
+
+[node name="Arrow" type="Label" parent="MobileControls/ControlContainer/DownButton/Icon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "↓"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractButton" type="TouchScreenButton" parent="MobileControls/ControlContainer"]
+position = Vector2(1050, 570)
+scale = Vector2(2, 2)
+action = "interact"
+
+[node name="Icon" type="ColorRect" parent="MobileControls/ControlContainer/InteractButton"]
+offset_right = 80.0
+offset_bottom = 50.0
+color = Color(0.2, 0.8, 0.2, 0.5)
+
+[node name="Label" type="Label" parent="MobileControls/ControlContainer/InteractButton/Icon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -15.0
+offset_right = 30.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
