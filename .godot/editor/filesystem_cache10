@@ -1,5 +1,6 @@
 72322a848ab928aa5c89f0cb78209805
-::res://::1765290354
+::res://::1768067325
+ce_mai_e_de_facut.txt::TextFile::-1::1768067254::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1765279919::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::9148651692411179620::1765275953::1765276548::1::::<><><>0<>0<>9945184dd46340e07a5a2f8685cf0dd6<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1765276370::0::1::::<><><>0<>0<><>::
