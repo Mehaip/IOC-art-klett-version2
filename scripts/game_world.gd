@@ -7,8 +7,9 @@ func _ready():
 	var camera = $Camera2D
 	var astronaut = $Astronaut
 	if astronaut:
-		camera.reparent(astronaut)
-		camera.position = Vector2.ZERO
+		# uncomment to follow astronaut
+		#camera.reparent(astronaut)
+		camera.position = get_viewport_rect().size / 2
 
 func generate_stars():
 	var star_container = $Background/Stars

@@ -3,12 +3,15 @@ extends CharacterBody2D
 const SPEED = 200.0
 
 var nearby_planet = null
+var can_move = true
 
 func _ready():
 	$InteractionArea.area_entered.connect(_on_area_entered)
 	$InteractionArea.area_exited.connect(_on_area_exited)
 
 func _physics_process(delta):
+	if can_move == false:
+		return
 	var input_vector = Vector2.ZERO
 
 	if Input.is_action_pressed("ui_right"):
@@ -25,6 +28,11 @@ func _physics_process(delta):
 
 	velocity = input_vector * SPEED
 	move_and_slide()
+	
+	var screen_size = get_viewport_rect().size
+	var padding = 32
+	position.x = clamp(position.x, padding, screen_size.x - padding)
+	position.y = clamp(position.y, padding, screen_size.y - padding)
 
 func _input(event):
 	if event.is_action_pressed("interact") and nearby_planet:

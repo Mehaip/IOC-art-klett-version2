@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmx3ujuv1yj8f"]
 
-[ext_resource type="Script" path="res://scripts/game_world.gd" id="1_world"]
+[ext_resource type="Script" uid="uid://4lahjcjjjsql" path="res://scripts/game_world.gd" id="1_world"]
 [ext_resource type="PackedScene" uid="uid://7iyb53wxofj5" path="res://scenes/astronaut.tscn" id="2_astro"]
 [ext_resource type="PackedScene" uid="uid://dnfw0dvehw5k0" path="res://scenes/planet.tscn" id="3_planet"]
 
@@ -16,68 +16,74 @@ color = Color(0.05, 0.02, 0.15, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
-zoom = Vector2(1, 1)
-
-[node name="Astronaut" parent="." instance=ExtResource("2_astro")]
-position = Vector2(640, 360)
 
 [node name="Planets" type="Node2D" parent="."]
 
 [node name="Mercury" parent="Planets" instance=ExtResource("3_planet")]
-position = Vector2(400, 200)
+position = Vector2(119, 322)
+scale = Vector2(0.76, 0.76)
 planet_name = "Mercury"
 planet_color = Color(0.6, 0.6, 0.6, 1)
 
 [node name="Venus" parent="Planets" instance=ExtResource("3_planet")]
-position = Vector2(700, 150)
+position = Vector2(272, 141)
+scale = Vector2(0.76, 0.76)
 planet_name = "Venus"
 planet_color = Color(0.9, 0.7, 0.4, 1)
 
 [node name="Earth" parent="Planets" instance=ExtResource("3_planet")]
-position = Vector2(900, 250)
+position = Vector2(405, 464)
+scale = Vector2(0.76, 0.76)
 planet_name = "Earth"
 planet_color = Color(0.2, 0.4, 0.8, 1)
 
 [node name="Mars" parent="Planets" instance=ExtResource("3_planet")]
-position = Vector2(300, 400)
+position = Vector2(504, 213)
+scale = Vector2(0.76, 0.76)
 planet_name = "Mars"
 planet_color = Color(0.8, 0.3, 0.2, 1)
 
 [node name="Jupiter" parent="Planets" instance=ExtResource("3_planet")]
-position = Vector2(600, 500)
+position = Vector2(656, 529)
+scale = Vector2(0.76, 0.76)
 planet_name = "Jupiter"
 planet_color = Color(0.8, 0.6, 0.4, 1)
 planet_scale = 2.0
 
 [node name="Saturn" parent="Planets" instance=ExtResource("3_planet")]
-position = Vector2(950, 500)
+position = Vector2(801, 106)
+scale = Vector2(0.76, 0.76)
 planet_name = "Saturn"
 planet_color = Color(0.9, 0.8, 0.6, 1)
 planet_scale = 1.8
 
 [node name="Uranus" parent="Planets" instance=ExtResource("3_planet")]
-position = Vector2(200, 600)
+position = Vector2(922, 317)
+scale = Vector2(0.76, 0.76)
 planet_name = "Uranus"
 planet_color = Color(0.4, 0.7, 0.8, 1)
 planet_scale = 1.3
 
 [node name="Neptune" parent="Planets" instance=ExtResource("3_planet")]
-position = Vector2(1100, 300)
+position = Vector2(1118, 133)
+scale = Vector2(0.76, 0.76)
 planet_name = "Neptune"
 planet_color = Color(0.2, 0.3, 0.9, 1)
 planet_scale = 1.3
 
 [node name="HAI_SA_INVATAM" parent="Planets" instance=ExtResource("3_planet")]
-position = Vector2(1000, 600)
+position = Vector2(1136, 476)
 planet_name = "HAI_SA_INVATAM"
 planet_color = Color(1, 0.9, 0.3, 1)
 planet_scale = 1.2
 
 [node name="NOTITE" parent="Planets" instance=ExtResource("3_planet")]
-position = Vector2(400, 600)
+position = Vector2(948, 617)
 planet_name = "NOTITE"
 planet_color = Color(0.7, 0.5, 0.9, 1)
-planet_scale = 1.0
+
+[node name="Astronaut" parent="." instance=ExtResource("2_astro")]
+position = Vector2(640, 360)
 
 [node name="MobileControls" type="CanvasLayer" parent="."]
 

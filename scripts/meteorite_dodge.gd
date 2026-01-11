@@ -4,14 +4,37 @@ var planet_to_unlock = ""
 var elapsed_time = 0.0
 var game_over = false
 var meteorites = []
+var stars = []
+var astronaut
+var meteorites_can_move = true
 
 func set_planet(planet_name: String):
 	planet_to_unlock = planet_name
 
 func _ready():
+	generate_stars()
+	
+	astronaut = $Player
+	if astronaut:
+		astronaut.can_move = true
+	
+	meteorites_can_move = true
+	
 	$UI/HighscoreLabel.text = "Best: %.1fs" % GameState.meteorite_highscore
 	$Player/InteractionArea.area_entered.connect(_on_player_hit)
 	$SpawnTimer.timeout.connect(_on_spawn_timer_timeout)
+
+func generate_stars():
+	var star_container = $Background/Stars
+	for i in range(200):
+		var star = ColorRect.new()
+		var size = randf_range(1, 3)
+		star.custom_minimum_size = Vector2(size, size)
+		star.size = Vector2(size, size)
+		star.position = Vector2(randf_range(0, 1280), randf_range(0, 720))
+		star.color = Color(1, 1, 1, randf_range(0.3, 1.0))
+		star_container.add_child(star)
+		stars.append(star)
 
 func _process(delta):
 	if not game_over:
@@ -53,6 +76,9 @@ func spawn_meteorite():
 	meteorites.append(meteorite)
 
 func _physics_process(delta):
+	if meteorites_can_move == false:
+		return
+		
 	for meteorite in meteorites:
 		if is_instance_valid(meteorite):
 			var velocity = meteorite.get_meta("velocity")
@@ -72,10 +98,14 @@ func _on_player_hit(area):
 		end_game()
 
 func end_game():
+	astronaut.can_move = false
+	meteorites_can_move = false
 	GameState.update_highscore(elapsed_time)
 	GameState.unlock_planet(planet_to_unlock)
 
 	$UI/TimerLabel.text = "Hit! Time: %.1fs" % elapsed_time
-
+	
 	await get_tree().create_timer(2.0).timeout
+	astronaut.can_move = true
+	meteorites_can_move = true
 	get_tree().change_scene_to_file("res://scenes/game_world.tscn")
