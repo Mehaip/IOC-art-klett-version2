@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bupqhffpjehki"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3xr8t"]
+[ext_resource type="Script" uid="uid://pa8001xqhhnl" path="res://scripts/main_menu.gd" id="1_3xr8t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_start"]
 bg_color = Color(0.2, 0.4, 0.8, 1)
@@ -47,7 +47,7 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.6, 1)
 theme_override_font_sizes/font_size = 48
-text = "Art Klett - Planete"
+text = "Micul Astronaut"
 horizontal_alignment = 1
 vertical_alignment = 1
 

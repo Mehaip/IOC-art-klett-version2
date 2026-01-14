@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3qwyj5u5ynjb"]
+[gd_scene load_steps=4 format=3 uid="uid://b3qwyj5u5ynjb"]
 
-[ext_resource type="Script" path="res://scripts/quiz.gd" id="1_quiz"]
+[ext_resource type="Script" uid="uid://dcetgt58ain2t" path="res://scripts/quiz.gd" id="1_quiz"]
+[ext_resource type="Script" uid="uid://lsihq2yqcxmn" path="res://scenes/star_background.gd" id="2_jng0p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_answer"]
 bg_color = Color(0.2, 0.3, 0.5, 1)
@@ -28,6 +29,7 @@ grow_vertical = 2
 color = Color(0.1, 0.1, 0.2, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -115,6 +117,13 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="StarBackground" type="Node2D" parent="."]
+script = ExtResource("2_jng0p")
+
+[node name="Background" type="Node2D" parent="StarBackground"]
+
+[node name="Stars" type="Node2D" parent="StarBackground/Background"]
 
 [connection signal="pressed" from="VBoxContainer/Answer1" to="." method="_on_answer_pressed" binds= [0]]
 [connection signal="pressed" from="VBoxContainer/Answer2" to="." method="_on_answer_pressed" binds= [1]]
