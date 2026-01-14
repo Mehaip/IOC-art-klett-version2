@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Art Klett - Planete"
-run/main_scene="res://scenes/main_menu.tscn"
+config/name="Micul Astronaut"
+run/main_scene="uid://bupqhffpjehki"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

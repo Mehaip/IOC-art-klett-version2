@@ -56,10 +56,10 @@ func _on_answer_pressed(answer_index: int):
 
 	if is_correct:
 		correct_answers += 1
-		$FeedbackLabel.text = "Corect! ✓"
+		$FeedbackLabel.text = "Corect ✓"
 		$FeedbackLabel.add_theme_color_override("font_color", Color.GREEN)
 	else:
-		$FeedbackLabel.text = "Greșit! X"
+		$FeedbackLabel.text = "Greșit X"
 		$FeedbackLabel.add_theme_color_override("font_color", Color.RED)
 
 	waiting_for_next = true
