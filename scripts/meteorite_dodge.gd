@@ -101,11 +101,26 @@ func end_game():
 	astronaut.can_move = false
 	meteorites_can_move = false
 	GameState.update_highscore(elapsed_time)
-	GameState.unlock_planet(planet_to_unlock)
 
-	$UI/TimerLabel.text = "Hit! Time: %.1fs" % elapsed_time
-	
+	var required_time: float = 20.0
+	var success: bool = elapsed_time >= required_time
+
+	if success:
+		GameState.unlock_planet(planet_to_unlock)
+		$UI/TimerLabel.text = "Succes! %.1fs (minim %.0fs)" % [elapsed_time, required_time]
+	else:
+		$UI/TimerLabel.text = "Prea repede! %.1fs / %.0fs. Reîncearcă!" % [elapsed_time, required_time]
+
 	await get_tree().create_timer(2.0).timeout
-	astronaut.can_move = true
-	meteorites_can_move = true
-	get_tree().change_scene_to_file("res://scenes/game_world.tscn")
+
+	if success:
+		astronaut.can_move = true
+		meteorites_can_move = true
+		get_tree().change_scene_to_file("res://scenes/game_world.tscn")
+	else:
+		# restart mini-game (fara sa mai refaci quiz-ul)
+		var meteorite_scene = load("res://scenes/meteorite_dodge.tscn").instantiate()
+		meteorite_scene.set_planet(planet_to_unlock)
+		get_tree().root.add_child(meteorite_scene)
+		get_tree().current_scene.queue_free()
+		get_tree().current_scene = meteorite_scene

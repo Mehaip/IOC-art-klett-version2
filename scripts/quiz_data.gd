@@ -220,6 +220,23 @@ var quiz_questions = {
 }
 
 func get_questions(planet_name: String) -> Array:
-	if planet_name in quiz_questions:
-		return quiz_questions[planet_name]
-	return []
+	if planet_name not in quiz_questions:
+		return []
+
+	# facem o copie ca sa nu modificam structura originala
+	var result = []
+	for q in quiz_questions[planet_name]:
+		var question_copy = q.duplicate(true)
+
+		var answers = question_copy["answers"]
+		var correct_answer_text = answers[question_copy["correct"]]
+
+		# amestecam raspunsurile
+		answers.shuffle()
+
+		# recalculam index-ul raspunsului corect dupa shuffle
+		question_copy["correct"] = answers.find(correct_answer_text)
+
+		result.append(question_copy)
+
+	return result
